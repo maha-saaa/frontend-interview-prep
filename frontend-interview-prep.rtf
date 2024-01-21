@@ -81,14 +81,19 @@ declaring a func in another func
 ability of a function to remember the variables and functions that are declared in its outer scope - when func stores a variable for further references instead of destroying it after execution
 
 Data types
-( primitive are passed by values(assign values) -string number bigint boolean undefined null(typeof obj) symbol) , (none primitive are passed by reference - obj based - obj array function)
+( primitive are passed by values and compared by values - string number bigint boolean undefined null(typeof obj) symbol) , 
+(none primitive are passed by reference and compared by reference - obj based - obj array function)
 	•	Primitive data types can store only a single value. To store multiple and complex values, non-primitive data types are used.
 	•	Any data type that is not primitive is of object type - typeof [1,2,3] is obj
-	•	ex: Var y =  234 , var z = y : In the above example, the assign operator knows that the value assigned to y is a primitive type ( allocates some space in the memory, stores the value “234” and returns the location of the allocated memory space. Therefore, the variable y  points to the location of the memory space), so when the second line code executes, where the value of y is assigned to z, the assign operator takes the value of y (234) and allocates a new space in the memory and returns the address. Therefore, variable z is not pointing to the location of variable y, instead, it is pointing to a new location in the memory.
+	•	ex: Var y =  234 , var z = y : In the above example, the assign operator knows that the value assigned to y is a primitive type ( allocates some space in the memory, stores the value “234” and returns the location of the allocated memory space. Therefore, the variable y points to the location of the memory space), so when the second line code executes, where the value of y is assigned to z, the assign operator takes the value of y (234) and allocates a new space in the memory and returns the address. Therefore, variable z is not pointing to the location of variable y, instead, it is pointing to a new location in the memory.
 	•	ex: 
 	•	var obj = { name: "Vivek", surname: "Bisht" };
 	•	var obj2 = obj;
-	•	The reference of the obj is passed to obj2
+	•	The reference of the obj is passed to obj2 both pointing to same address                                                                                                 
+a = 1 , b = 1 , a===b ? true.                                                                           
+a = { “name”: “Sara”} , b = { “name”: “Sara”}, a===b ? false ,
+c = a, c===a ? true both pointing to the same address if c changes a changes
+
 
 IIFE
 •	immediately invoked func - func that is called as soon as it is defined
@@ -101,8 +106,8 @@ Implicit Type Coercion
 •	 automatic conversion of value from one data type to another - with + number is converted to string then concats -  3 + 5 + “7” = “87”, with - string is converted to number 3 - “3” = 0
 	•	Truthy values are those which will be converted (coerced) to true. Falsy values are those which will be converted to false.
 	•	All values except false, 0, 0n, -0, “”, null, undefined, and NaN are truthy values.
-	•	OR ( | | ) operator - If the first value is truthy, then the first value is returned. Otherwise, always the second value gets returned.
-	•	AND ( && ) operator - If both the values are truthy, always the second value is returned. If the first value is falsy then the first value is returned or if the second value is falsy then the second value is returned.
+	•	OR ( | | ) operator - returns the first truthy value
+	•	AND ( && ) operator -  if all values are truthy returns last one    if one is falsy returns the first falsy 
 	•	The ‘==’ operator, converts both the operands to the same type and then compares them.
 
 NaN
